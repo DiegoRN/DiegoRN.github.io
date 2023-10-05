@@ -185,8 +185,9 @@ p{
     margin-top: 0;
     border: 0;
     border-radius: 0;
-    background: #f8f9fa;
+    background: #000000;
 }
+
 
 @media (min-width: 992px) {
     .navbar {
@@ -244,7 +245,9 @@ p{
         top: 0;
         bottom: 0;
         height: 100px;
-        transform: translateY(-50%);
+        border: 0.5px solid rgba(0, 0, 0, 1);
+        border-radius: 7.5px;
+        transform: translateY(-45%);
     }
     
     .navbar-light.nav-sticky .navbar-nav .nav-link:hover,
@@ -258,7 +261,8 @@ p{
 @media (max-width: 991.98px) {   
     .navbar {
         padding: 15px;
-        background: #ffffff !important;
+        background: #000000 !important;
+        color:white;
     }
     
     .navbar .navbar-brand {
@@ -267,15 +271,33 @@ p{
     
     .navbar .navbar-nav {
         margin-top: 15px;
+        color:white;
+
     }
     
     .navbar a.nav-link {
         padding: 5px;
+        color:white;
+
     }
     
     .navbar .dropdown-menu {
         box-shadow: none;
+        color:white;
+
     }
+
+    .navbar-collapse a.nav-link {
+        font-family: 'exo', sans-serif;
+        color: #ffffff !important; /* Add !important to override any existing styles */
+    }
+
+    .navbar-toggler {
+        background-color: white; /* Change to your desired color */
+        color: white; /* Text color of the button */
+        border: none; /* Remove button border if desired */
+    }
+    
 }
 
 
@@ -302,15 +324,17 @@ p{
 .hero .hero-image {
     position: relative;
     text-align: center;
-    max-width: 80%;
+    min-width: 80%;
+    width: 80%;
     margin: 0 auto;
 }
 
 .hero .hero-image img {
     max-width: 35%;
-    max-height: 80%;
+    max-height: 35%;
     text-align: center;
     margin-bottom: 30px;
+    border-radius: 180px;
     border: 7.5px solid rgba(0, 0, 0, .15);
     display: block; /* Ensure the image is centered correctly */
     margin-left: auto; /* Center horizontally */
@@ -542,6 +566,7 @@ p{
 
 .about .about-img img {
     position: relative;
+    border-radius: 30px;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -552,7 +577,7 @@ p{
 }
 
 .about .about-text p {
-    color:#161616;
+    color:#272727;
     font-size: 19px;
 }
 
@@ -701,6 +726,7 @@ p{
     padding: 30px;
     background: #ffffff;
     position: relative;
+    border-radius: 15px;
     border-right: 5px solid #dddddd;
     box-shadow: 0 0 60px rgba(0, 0, 0, .08);
 }
@@ -907,6 +933,7 @@ p{
 }
 
 .portfolio .portfolio-img {
+    border-radius: 15px;
     position: relative;
     overflow: hidden;
 }
@@ -929,6 +956,7 @@ p{
     height: 60px;
     width: calc(100% - 30px);
     margin: -30px 15px 30px 15px;
+    border-radius: 15px;
     display: flex;
     align-items: center;
     background: #ffffff;
