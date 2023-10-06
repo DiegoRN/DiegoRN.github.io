@@ -1758,3 +1758,19 @@ p{
     font-size: 20px;
     cursor: pointer;
 }
+
+.carousel-item img{
+    max-width: 90%;
+    max-height: 90%;
+    display: block;
+    margin: 0 auto; /* Add this to center horizontally */
+}
+
+.carousel-control-prev {
+    border: 7.5px solid rgba(0, 0, 0, .15);
+}
+
+.carousel-control-next {
+    
+    border: 7.5px solid rgba(0, 0, 0, .15);
+}
