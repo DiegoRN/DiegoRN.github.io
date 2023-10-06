@@ -300,11 +300,11 @@
                             </div>
                             <div class="portfolio-text">
                                 <h3>Little Keepers</h3>
-                                <a class="btn" href="img/LK_banner.png" data-lightbox="portfolio">+</a>
+                                <a class="btn">+</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2 wow fadeInUp" data-wow-delay="0.0s">
                         <div class="portfolio-wrap">
                             <div class="portfolio-img">
                                 <img src="img/SV_banner.png" alt="Image">
@@ -315,7 +315,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="0.0s">
                         <div class="portfolio-wrap">
                             <div class="portfolio-img">
                                 <img src="img/NL_banner.png" alt="Image">
@@ -326,7 +326,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-1 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-1 wow fadeInUp" data-wow-delay="0.0s">
                         <div class="portfolio-wrap">
                             <div class="portfolio-img">
                                 <img src="img/PN_banner.png" alt="Image">
@@ -337,7 +337,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2 wow fadeInUp" data-wow-delay="0.8s">
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2 wow fadeInUp" data-wow-delay="0.0s">
                         <div class="portfolio-wrap">
                             <div class="portfolio-img">
                                 <img src="img/HF_banner.png" alt="Image">
@@ -348,7 +348,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="1s">
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="0.0s">
                         <div class="portfolio-wrap">
                             <div class="portfolio-img">
                                 <img src="img/3D_banner.png" alt="Image">
@@ -359,7 +359,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-1 wow fadeInUp" data-wow-delay="1.2s">
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-1 wow fadeInUp" data-wow-delay="0.0s">
                         <div class="portfolio-wrap">
                             <div class="portfolio-img">
                                 <img src="img/MK_banner.png" alt="Image">
@@ -370,7 +370,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2 wow fadeInUp" data-wow-delay="1.4s">
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2 wow fadeInUp" data-wow-delay="0.0s">
                         <div class="portfolio-wrap">
                             <div class="portfolio-img">
                                 <img src="img/GH_banner.jpg" alt="Image">
@@ -740,7 +740,7 @@
 
 
         <!-- Footer Start -->
-        <div class="footer wow fadeIn" data-wow-delay="0.3s" id="contact">
+        <div class="footer wow" id="contact">
             <div class="container-fluid">
                 <div class="container">
                     <div class="footer-info">
@@ -776,7 +776,47 @@
             <div class="loader"></div>
         </div>
 
-        
+        <div id="project-popup" class="popup project1">
+            <div class="popup-content">
+                <span class="close-popup" onclick="closeProjectPopup()">&times;</span>
+                <div class="popup-header">
+                    <div class="project-popup-video">
+                        <iframe width="560" height="315" src="https://www.youtube.com/watch?v=krxlX8XpaKI&t=3s&ab_channel=LittleKeepers" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="popup-body">
+                    <div class="popup-text">
+                        <h2>Little Keepers</h2>
+                        <h3><b><i>About:</i> </b></h3>
+                        <p>Little Keepers is a cooperative Tower Defense game where we control Ollie and Dahlia, two siblings who must protect their home from their mother's failed experiments. To do this, they'll have to work together to gather materials and create turrets that will help defeat the unruly plants. 
+                        </p>
+                        <p>
+                            This game has been developed under the name of <b>Atabey Creations</b>, a studio composed of 37 students divided into several departments: production, marketing, 3D art, concept art, audio, design, and programming, of which I was a part.
+                        </p>
+                        <h3><b><i>What did I do</i> ?</b> </h3>
+                        <p><li> <b>AI Programmer</b>: My main task in this project was to create the Single Player mode, with the AI of the second player as its core. This companion is responsible for performing the functions of a second player: collecting light materials, assisting in carrying heavy objects, and piloting the cooperative turret when needed. This AI was balanced through many iterations to be efficient but not appear overly intelligent. 
+                        </li></p>
+                        <p>I also programmed the protector enemy, a mushroom that grants a shield to the enemies that come into contact with it.</p>
+                        
+                        <p><li> <b>Gameplay Programmer</b>: I was also in charge of creating different gameplay elements for the game, such as the main cable mechanic, which allows players to grab and move materials and turrets. This mechanic also includes restricted areas for planting turrets, as they should not be placed too close to each other or near key areas like the spawners. 
+                        </li></p>
+
+                        <p><li> <b>UI Programmer</b>: Since I needed to create a screen to choose between Single and Multiplayer mode, I also programmed what eventually evolved into the character selection screen, so that if only one of the two characters was chosen before the second player joined, the single-player mode would start. 
+                        </li></p>
+                        <p><li> <b>Blueprint translation to C++</b>:  As a member of an interdisciplinary team, I was also responsible for translating some of the Blueprint prototypes designed by the Design Department to code.
+                        </li></p>
+
+                        <h3><b><i>Details:</i></b> </h3>
+                        <p><li> <b>Technologies used</b>: Unreal Engine 4, Perforce, HacknPlan, Jenkins...</li></p>
+                        <p><li> <b>Programming language</b>: C++</li></p>
+                        <p><li> <b>Programming language</b>: C++</li></p>
+                        <p><li> Available at <b><a href="https://store.steampowered.com/app/2378390/Little_Keepers/">Steam</a></b>: C++</li></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>

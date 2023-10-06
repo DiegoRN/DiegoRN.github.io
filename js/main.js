@@ -107,3 +107,35 @@
     
 })(jQuery);
 
+// Function to open the project popup
+function openProjectPopup() {
+    var popup = document.getElementById("project-popup");
+    popup.style.display = "block";
+}
+
+// Function to close the project popup
+function closeProjectPopup() {
+    var popup = document.getElementById("project-popup");
+    popup.style.display = "none";
+}
+
+// Add event listeners to your project buttons to open the popup
+document.querySelectorAll(".portfolio-item .btn").forEach(function(button) {
+    button.addEventListener("click", openProjectPopup);
+});
+
+$(document).ready(function () {
+    // ...
+    
+    // Add an event listener to project buttons
+    $('.project-button').on('click', function () {
+        var projectId = $(this).data('project-id');
+        $('#' + projectId).fadeIn();
+        return false; // Prevent the default anchor link behavior
+    });
+    
+    // Add a close button event handler to hide the project popups
+    $('.project-popup .close-button').on('click', function () {
+        $(this).closest('.project-popup').fadeOut();
+    });
+});
