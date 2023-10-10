@@ -310,7 +310,7 @@ p{
     margin-bottom: 45px;
     padding: 90px 0 45px 0;
     overflow: hidden;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/japanese-bg.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/banner-bg.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -896,6 +896,7 @@ p{
     list-style: none;
     font-size: 0;
     text-align: center;
+    border-radius: 16px;
 }
 
 .portfolio #portfolio-filter li {
@@ -913,6 +914,7 @@ p{
     transition: ease-out 0.3s;
     -webkit-transition: ease-out 0.3s;
     -moz-transition: ease-out 0.3s;
+    border-radius: 15px;
 }
 
 .portfolio #portfolio-filter li:hover,
@@ -1881,6 +1883,7 @@ p{
     min-height: 60%;
     max-width: 60%; /* Ensure the image doesn't exceed the container */
     max-height: 60%;
+    aspect-ratio: 16/9;
 }
 
 /* Style the carousel slides container */
@@ -1904,7 +1907,6 @@ p{
 
 /* Style the carousel buttons */
 .carousel-button {
-    position: absolute;
     top: 50%; /* Vertically center the buttons */
     transform: translateY(-50%);
     background: none;
@@ -1917,22 +1919,20 @@ p{
     color: #00a2ff;
 }
 
-#prevButton {
+.prevButton {
     left: 0;
     margin-left: 16%; /* Adjust the margin as needed */
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
 }
 
 /* Style the "Next" button */
-#nextButton {
+.nextButton {
     right: 0;
     left: auto; /* Remove left alignment for the "Next" button */
     margin-right: 16%; /* Adjust the margin as needed */
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
 }
 
 /* Show the first slide by default */
@@ -1974,22 +1974,22 @@ p{
         max-height: 80%;
     }
 
-    #prevButton {
+    .prevButton {
         left: 0;
         margin-left: 0%; /* Adjust the margin as needed */
         position: absolute;
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(-25%);
     }
     
     /* Style the "Next" button */
-    #nextButton {
+    .nextButton {
         right: 0;
         left: auto; /* Remove left alignment for the "Next" button */
         margin-right: 0%; /* Adjust the margin as needed */
         position: absolute;
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(-25%);
     }
 }
 
@@ -2017,6 +2017,21 @@ p{
 }
 
 .steam-btn:hover {
+    color: rgba(0, 187, 255, 1);
+    background: transparent;
+    box-shadow: inset 0 0 0 0 rgba(0, 187, 255, 1);
+    border-color: rgba(0, 187, 255, 1);
+}
+
+.github-btn{
+    display: flex;
+    font-size: 35px !important;
+    place-content: center;
+    align-items: center;
+    text-decoration: none; /* Remove the default link underline */
+}
+
+.github-btn:hover {
     color: rgba(0, 187, 255, 1);
     background: transparent;
     box-shadow: inset 0 0 0 0 rgba(0, 187, 255, 1);

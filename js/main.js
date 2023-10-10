@@ -109,8 +109,8 @@
 
 
 // Function to open the project popup
-function openProjectPopup() {
-    var popup = document.getElementById("project-popup");
+function openProjectPopup(popupId) {
+    var popup = document.getElementById(popupId);
     popup.style.display = "block";
     var popupBodies = document.getElementsByClassName("popup-body");
     for (var i = 0; i < popupBodies.length; i++) {
@@ -126,36 +126,45 @@ function openProjectPopup() {
 
     document.body.style.overflow = "hidden"; // Prevent scrolling on the background content
 
-    var overlay = document.getElementById("overlay");
+    var overlayId = "overlay" + popupId.slice(-1);
+    var overlay = document.getElementById(overlayId);
     overlay.style.display = "block";
     overlay.addEventListener("click", function (event) {
-        console.log("Overlay clicked"); // Debugging line
-        if (event.target == overlay) {
-            closeProjectPopup();
-        }
+        overlayClickHandler(event, popupId);
     });
 }
 
 // Function to close the project popup
-function closeProjectPopup() {
-    var popup = document.getElementById("project-popup");
+function closeProjectPopup(popupId) {
+    var popup = document.getElementById(popupId);
 
     popup.querySelectorAll('iframe').forEach(v => { v.src = v.src });
     popup.style.display = "none";
-    resetSlide();
 
-    var overlay = document.getElementById("overlay");
+    var overlayId = "overlay" + popupId.slice(-1);
+    var overlay = document.getElementById(overlayId);
     overlay.style.display = "none";
+    overlay.removeEventListener("click", overlayClickHandler);
     document.body.style.overflow = "auto"; // Restore scrolling on the background content
 }
 
+function overlayClickHandler(event, popupId) {
+    closeProjectPopup(popupId);
+}
+
 // Add event listeners to your project buttons to open the popup
-document.querySelectorAll(".portfolio-item .btn").forEach(function(button) {
-    button.addEventListener("click", openProjectPopup);
+document.querySelectorAll(".open-popup-btn .btn").forEach(function(button) {
+    button.addEventListener("click", function() {
+        var popupId = button.getAttribute("data-popup-id");
+        openProjectPopup(popupId);
+    });
 });
 
 document.querySelectorAll(".portfolio-img").forEach(function(button) {
-    button.addEventListener("click", openProjectPopup);
+    button.addEventListener("click", function() {
+        var popupId = button.getAttribute("project-id");
+        openProjectPopup(popupId);
+    });
 });
 
 $(document).ready(function () {
@@ -174,83 +183,101 @@ $(document).ready(function () {
     });
 });
 
-var currentSlide = 0;
-var slides = document.querySelectorAll('.carousel-slide');
-var dotsContainer = document.querySelector('.carousel-dots');
+function initializeCarousel(popupId) {
+    var currentSlide = 0;
+    var slides = document.querySelectorAll(`#${popupId} .carousel-slide`);
+    var dotsContainer = document.querySelector(`#${popupId} .carousel-dots`);
 
-// Create dots based on the number of slides
-slides.forEach(function (_, index) {
-    var dot = document.createElement('div');
-    dot.classList.add('carousel-dot');
-    if (index === currentSlide) {
-        dot.classList.add('active');
+    // Create dots based on the number of slides
+    slides.forEach(function (_, index) {
+        var dot = document.createElement('div');
+        dot.classList.add('carousel-dot');
+        if (index === currentSlide) {
+            dot.classList.add('active');
+        }
+        dotsContainer.appendChild(dot);
+    });
+
+    // Function to show the current slide and update dots
+    function showSlide(index) {
+        if (index < 0) {
+            index = slides.length - 1;
+        } else if (index >= slides.length) {
+            index = 0;
+        }
+
+        slides.forEach(function (slide, slideIndex) {
+            if (slideIndex === index) {
+                slide.style.display = 'block';
+            } else {
+                slide.style.display = 'none';
+            }
+        });
+
+        var dots = document.querySelectorAll(`#${popupId} .carousel-dot`);
+        dots.forEach(function (dot, dotIndex) {
+            if (dotIndex === index) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+
+        currentSlide = index;
     }
-    dotsContainer.appendChild(dot);
-});
 
-// Function to show the current slide and update dots
-function showSlide(index) {
-    if (index < 0) {
-        index = slides.length - 1;
-    } else if (index >= slides.length) {
-        index = 0;
-    }
+    // Add event listeners for navigation (e.g., next and previous buttons)
+    var prevId = "prevButton" + popupId.slice(-1);
+    document.getElementById(prevId).addEventListener("click", function () {
+        showSlide(currentSlide - 1);
+    });
 
+    var nextId = "nextButton" + popupId.slice(-1);
+    document.getElementById(nextId).addEventListener("click", function () {
+        showSlide(currentSlide + 1);
+    });
+
+    // Add event listeners for dot navigation
+    var dotButtons = document.querySelectorAll(`#${popupId} .carousel-dot`);
+    dotButtons.forEach(function (dot, dotIndex) {
+        dot.addEventListener('click', function () {
+            showSlide(dotIndex);
+        });
+    });
+
+    // Show the initial slide
+    showSlide(currentSlide);
+}
+
+// Call initializeCarousel for each popup with its unique ID
+initializeCarousel("popup1");
+initializeCarousel("popup2");
+initializeCarousel("popup3");
+initializeCarousel("popup4");
+initializeCarousel("popup5");
+initializeCarousel("popup6");
+initializeCarousel("popup7");
+
+
+function resetSlide(carouselId) {
+    var slides = document.querySelectorAll(`#${carouselId} .carousel-slide`);
+
+    // Hide all slides except the first one
     slides.forEach(function (slide, slideIndex) {
-        if (slideIndex === index) {
+        if (slideIndex === 0) {
             slide.style.display = 'block';
         } else {
             slide.style.display = 'none';
         }
     });
 
-    var dots = document.querySelectorAll('.carousel-dot');
+    // Update the active dot
+    var dots = document.querySelectorAll(`#${carouselId} .carousel-dot`);
     dots.forEach(function (dot, dotIndex) {
-        if (dotIndex === index) {
+        if (dotIndex === 0) {
             dot.classList.add('active');
         } else {
             dot.classList.remove('active');
         }
     });
-
-    currentSlide = index;
 }
-
-// Add event listeners for navigation (e.g., next and previous buttons)
-document.getElementById("nextButton").addEventListener("click", function () {
-    showSlide(currentSlide + 1);
-});
-
-document.getElementById("prevButton").addEventListener("click", function () {
-    showSlide(currentSlide - 1);
-});
-
-// Add event listeners for dot navigation
-var dotButtons = document.querySelectorAll('.carousel-dot');
-dotButtons.forEach(function (dot, dotIndex) {
-    dot.addEventListener('click', function () {
-        showSlide(dotIndex);
-    });
-});
-
-
-function resetSlide() {
-    currentSlide = 0;
-    showSlide(0);
-}
-
-// Add event listeners for navigation (e.g., next and previous buttons)
-document.getElementById("nextButton").addEventListener("click", nextSlide);
-document.getElementById("prevButton").addEventListener("click", prevSlide);
-
-// Show the initial slide
-showSlide(currentSlide);
-
-var overlay = document.getElementById("overlay");
-
-overlay.addEventListener("click", function (event) {
-    console.log("Overlay clicked"); // Debugging line
-    if (event.target == overlay) {
-        closeProjectPopup();
-    }
-});
