@@ -284,8 +284,9 @@ function resetSlide(carouselId) {
 
 const darkModeToggle = document.getElementById('dark-mode-toggle');
 const body = document.body;
-let isDarkMode = false;
+let isDarkMode = true;
 const iconElement = darkModeToggle.querySelector('i'); // Add this line
+body.classList.toggle('dark-mode');
 
 darkModeToggle.addEventListener('click', () => {
     body.classList.toggle('dark-mode');

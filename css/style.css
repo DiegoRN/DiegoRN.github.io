@@ -1940,6 +1940,12 @@ p{
     top: 50%;
 }
 
+.carousel-button:focus{
+    outline: none;
+}
+
+
+
 /* Show the first slide by default */
 .carousel-slide:first-child {
     display: block;
