@@ -281,3 +281,23 @@ function resetSlide(carouselId) {
         }
     });
 }
+
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+const body = document.body;
+let isDarkMode = false;
+const iconElement = darkModeToggle.querySelector('i'); // Add this line
+
+darkModeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    isDarkMode = !isDarkMode; // Toggle dark mode state
+
+    if (isDarkMode) {
+        // Enable dark mode
+        iconElement.classList.remove('fa-moon');
+        iconElement.classList.add('fa-sun');
+    } else {
+        // Disable dark mode
+        iconElement.classList.remove('fa-sun');
+        iconElement.classList.add('fa-moon');
+    }
+});
