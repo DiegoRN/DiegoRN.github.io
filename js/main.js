@@ -91,8 +91,6 @@
         }
     });
     
-    
-    
     // Portfolio filter
     var portfolioIsotope = $('.portfolio-container').isotope({
         itemSelector: '.portfolio-item',
@@ -103,6 +101,10 @@
         $("#portfolio-filter li").removeClass('filter-active');
         $(this).addClass('filter-active');
         portfolioIsotope.isotope({filter: $(this).data('filter')});
+    });
+
+    $(document).ready(function () {
+        $('#portfolio-filter li[data-filter="*"]').click();
     });
     
 })(jQuery);
@@ -257,6 +259,7 @@ initializeCarousel("popup4");
 initializeCarousel("popup5");
 initializeCarousel("popup6");
 initializeCarousel("popup7");
+initializeCarousel("popup8");
 
 
 function resetSlide(carouselId) {
